@@ -49,7 +49,7 @@ RUN pip install -q torch==2.4.0+cu121 torchvision==0.19.0+cu121 torchaudio==2.4.
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vdo/hallo2/raw/main/wav2vec/wav2vec2-base-960h/tokenizer_config.json -d /content/hallo2/pretrained_models/wav2vec/wav2vec2-base-960h -o tokenizer_config.json && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/vdo/hallo2/raw/main/wav2vec/wav2vec2-base-960h/vocab.json -d /content/hallo2/pretrained_models/wav2vec/wav2vec2-base-960h -o vocab.json
 
-RUN pip install huggingface_hub==0.20.3
+RUN pip install huggingface_hub==0.20.3 "numpy<2.0"
 
 COPY ./worker_runpod.py /content/hallo2/worker_runpod.py
 WORKDIR /content/hallo2
